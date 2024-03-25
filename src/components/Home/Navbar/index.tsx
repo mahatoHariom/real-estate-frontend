@@ -11,11 +11,12 @@ import { navItems } from "@/types/navbar"
 import { Button } from "@/components/ui/button"
 import LoginModal from "@/components/Modal/LoginModal"
 import { SquigglyUnderline } from "@/components/UnderlineNav"
+import { User2 } from "lucide-react"
 
 const Navbar = () => {
   const dispatch = useDispatch()
   return (
-    <header className="sticky top-0 z-50 flex h-20   w-full  items-center justify-between bg-white">
+    <header className="sticky top-0 z-50 flex h-20   w-full  items-center justify-between bg-">
       <div className="flex items-center gap-2 px-5">
         <Image
           src={"/img/logo.svg"}
@@ -39,7 +40,8 @@ const Navbar = () => {
         </Button>
 
         <LoginModal>
-          <Button variant={"secondary"}>Login</Button>
+          <Button variant={"outline"} className="mx-10 w-32">
+            <User2/>  Login/Register</Button>
         </LoginModal>
       </div>
     </header>

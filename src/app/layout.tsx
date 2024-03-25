@@ -8,7 +8,7 @@ import { cn } from "@/lib/utils"
 import { ThemeProvider } from "@/components/theme-provider"
 import  Navbar  from "@/components/Home/Navbar"
 import StoreProvider from "@/redux/Provider"
-
+import { Toaster } from "@/components/ui/sonner"
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -61,6 +61,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
           enableSystem
           disableTransitionOnChange
         >
+          {/* <Toaster/> */}
           <StoreProvider>
           <Navbar/>
           {children}

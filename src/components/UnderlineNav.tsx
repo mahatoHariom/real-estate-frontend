@@ -16,13 +16,13 @@ export const SquigglyUnderline = () => {
 
   return (
     <div className="flex gap-16 items-center">
-      {navigation.map((item) => {
+      {navigation.map((item,i) => {
         const isSelected = item.name === selectedLink
         return (
           <>
             {" "}
             <Link
-              key={item.name}
+              key={i}
               href="#"
               className={`relative text-sm leading-6 no-underline ${
                 isSelected ? "font-semibold text-black" : "text-gray-500"
