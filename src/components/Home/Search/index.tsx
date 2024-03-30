@@ -46,7 +46,7 @@ const SearchComponent = () => {
       <div className="flex  gap-2">
         <Button
           className={cn(
-            type === PropertyTypeEnum.SELL ? "bg-primary text-white" : "bg-white text-black",
+            type === PropertyTypeEnum.SELL ? "bg-primary text-secondary" : "bg-secondary text-primary",
             "px-10 py-6 "
           )}
           name={PropertyTypeEnum.SELL}
@@ -56,7 +56,7 @@ const SearchComponent = () => {
         </Button>
         <Button
           className={cn(
-            type === PropertyTypeEnum.RENT ? "bg-primary text-white" : "bg-white text-black",
+            type === PropertyTypeEnum.RENT ?  "bg-primary text-secondary" : " bg-secondary text-primary",
             "px-10 py-6 "
           )}
           name={PropertyTypeEnum.RENT}
@@ -66,7 +66,7 @@ const SearchComponent = () => {
         </Button>
       </div>
 
-      <div className="mt-5 h-20 w-2/4 rounded-lg border bg-white shadow-md ">
+      <div className="mt-5 h-20 w-2/4 rounded-lg border bg-card shadow-md ">
         <FormProvider {...methods}>
           <form
             onSubmit={methods.handleSubmit(onSubmit)}

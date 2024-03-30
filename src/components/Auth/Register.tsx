@@ -1,7 +1,7 @@
 "use client"
 
 import React from "react"
-import registerUser from "@/actions/user/registerUser"
+import { registerUser } from "@/actions/user/registerUser"
 import { registerFormSchema } from "@/validations/user/registerUser"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { ReloadIcon } from "@radix-ui/react-icons"
@@ -17,67 +17,19 @@ import {
 import { toast } from "sonner"
 import { z } from "zod"
 
-import {
-  Form,
-  FormControl,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from "@/components/ui/form"
-import { Input } from "@/components/ui/input"
+import { Form } from "@/components/ui/form"
 
+import FieldWrapper from "../Custom/FormInput"
 import { Button } from "../ui/button"
-
-interface FormValues {
-  username: string
-  email: string
-  password: string
-}
-
-interface FieldWrapperProps {
-  control: Control<FormValues>
-  name: keyof FormValues
-  label: string
-  placeholder: string
-  type?: string
-}
-
-const FieldWrapper: React.FC<FieldWrapperProps> = ({
-  control,
-  name,
-  label,
-  placeholder,
-  type = "text",
-}) => (
-  <FormField
-    control={control}
-    name={name}
-    render={({ field }) => (
-      <FormItem>
-        <FormLabel>{label}</FormLabel>
-        <FormControl>
-          <Controller
-            render={({ field }) => (
-              <Input type={type} placeholder={placeholder} {...field} />
-            )}
-            name={name}
-            control={control}
-          />
-        </FormControl>
-        <FormMessage />
-      </FormItem>
-    )}
-  />
-)
 
 const Register = () => {
   const { mutate: createUserHandler, isPending } = useMutation({
-    mutationKey: ["user"],
+    mutationKey: ["user", "register"],
     mutationFn: registerUser,
   })
 
   const form = useForm<z.infer<typeof registerFormSchema>>({
+    mode:"all",
     resolver: zodResolver(registerFormSchema),
     defaultValues: {
       email: "",
@@ -122,6 +74,7 @@ const Register = () => {
             placeholder="Enter your password"
             type="password"
           />
+
           <Button type="submit" className="w-full">
             {isPending ? (
               <ReloadIcon className="mr-2 h-4 w-4 animate-spin" />

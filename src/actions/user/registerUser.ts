@@ -5,7 +5,13 @@ export interface IRegisterInput {
   password: string
   email: string
 }
-export default async function registerUser(data: IRegisterInput) {
+
+export  async function registerUser(data: IRegisterInput) {
   const response = await api.post("/api/v1/auth/register", data)
+  return response?.data
+}
+
+export async function loginUser(data: Partial<IRegisterInput>) {
+  const response = await api.post("/api/v1/auth/login", data)
   return response?.data
 }

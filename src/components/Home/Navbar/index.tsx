@@ -40,7 +40,7 @@ const Navbar = () => {
         </Button>
 
         <LoginModal>
-          <Button variant={"outline"} className="mx-10 w-32">
+          <Button variant={"secondary"} className="mx-10 w-32">
             <User2/>  Login/Register</Button>
         </LoginModal>
       </div>

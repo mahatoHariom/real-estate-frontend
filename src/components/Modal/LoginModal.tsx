@@ -1,18 +1,14 @@
 "use client"
 
 import React from "react"
-import { hideModal } from "@/redux/features/modal"
-import { RootState } from "@/redux/store"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { ReloadIcon } from "@radix-ui/react-icons"
 import { useForm } from "react-hook-form"
-import { useDispatch, useSelector } from "react-redux"
 import { z } from "zod"
 
 import {
   Form,
   FormControl,
-  FormDescription,
   FormField,
   FormItem,
   FormLabel,
@@ -26,21 +22,19 @@ import {
   Card,
   CardContent,
   CardDescription,
-  CardFooter,
   CardHeader,
   CardTitle,
 } from "../ui/card"
 import {
   Dialog,
   DialogContent,
-  DialogDescription,
-  DialogFooter,
   DialogHeader,
   DialogTitle,
   DialogTrigger,
 } from "../ui/dialog"
 import { Label } from "../ui/label"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "../ui/tabs"
+import Login from "../Auth/Login"
 
 interface LoginModalProps {
   children: React.ReactNode
@@ -113,50 +107,7 @@ export const LoginModal = ({ children, onConfirm }: LoginModalProps) => {
                   </CardDescription>
                 </CardHeader>
                 <CardContent className="space-y-2">
-                  <Form {...form}>
-                    <form
-                      onSubmit={form.handleSubmit(onSubmit)}
-                      className="space-y-8"
-                    >
-                      <FormField
-                        control={form.control}
-                        name="email"
-                        render={({ field }) => (
-                          <FormItem>
-                            <FormLabel>Email</FormLabel>
-                            <FormControl>
-                              <Input
-                                placeholder="Enter your email"
-                                {...field}
-                              />
-                            </FormControl>
-                            <FormMessage />
-                          </FormItem>
-                        )}
-                      />
-                      <FormField
-                        control={form.control}
-                        name="password"
-                        render={({ field }) => (
-                          <FormItem>
-                            <FormLabel>Password</FormLabel>
-                            <FormControl>
-                              <Input
-                                type="password"
-                                placeholder="Enter your password"
-                                {...field}
-                              />
-                            </FormControl>
-                            <FormMessage />
-                          </FormItem>
-                        )}
-                      />
-                      <Button type="submit" className="w-full">
-                        <ReloadIcon className="mr-2 h-4 w-4 animate-spin" />
-                        Submit
-                      </Button>
-                    </form>
-                  </Form>
+                  <Login/>
                 </CardContent>
               </Card>
             </TabsContent>

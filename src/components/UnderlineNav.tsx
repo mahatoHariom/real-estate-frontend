@@ -25,7 +25,7 @@ export const SquigglyUnderline = () => {
               key={i}
               href="#"
               className={`relative text-sm leading-6 no-underline ${
-                isSelected ? "font-semibold text-black" : "text-gray-500"
+                isSelected ? "font-semibold text-foreground" : "text-foreground"
               }`}
               onClick={() => setSelectedLink(item.name)}
             >
